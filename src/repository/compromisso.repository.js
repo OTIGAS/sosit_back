@@ -8,19 +8,21 @@ export default class AgendaRepository {
           .query(
             `
             INSERT INTO
-              agendas (
-                nome,
-                servico,
+              compromissos (
+                id_usuario,
+                id_horario,
+                dt_completa,
                 descricao,
                 ativo
               )
             VALUES
-              (?,?,?,1)
+              (?,?,?,?,1)
           `,
             [
-              body?.nome,
-              body?.servico,
-              body?.descricao
+              body?.id_usuario,
+              body?.id_horario,
+              body?.dt_completa,
+              body?.descricao,
             ]
           )
           .then(([response]) => {
@@ -45,35 +47,43 @@ export default class AgendaRepository {
     })
   }
 
-  buscar(id_agenda) { // confirmar
+  buscar(id_compromisso) { // confirmar
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
           .query(
             `
               SELECT
-                a.id
-                a.nome,
-                a.servico,
-                a.descricao
-                u.nome
+                c.id_usuario,
+                uc.nome as nome_cliente,
+                c.id_horario,
+                h.inicio h_inicio,
+                h.fim h_fim,
+                a.nome nome_agenda,
+                ue.nome as nome_empresa,
+                c.dt_completa,
+                c.descricao
               FROM
-                agendas a
+                compromissos c
               LEFT JOIN 
-                usuario u ON a.id_usuario = u.id
+                usuarios uc ON c.id_usuario = uc.id
+              LEFT JOIN 
+                horarios h ON c.id_horarios = h.id
+              LEFT JOIN
+                agendas a ON h.id_agenda = a.id
+              LETF JOIN 
+                usuarios ue ON a.id_usuario = ue.id
               WHERE
                 a.id = ?
                 AND a.ativo = 1
             `,
-            [id_agenda]
+            [id_compromisso]
           )
           .then(([response]) => {
             if (!response?.length) {
-              return resolve({ erro: `Agenda não encontrada.` })
-            } else if (response?.ativo == 0) {
-              return resolve({ erro: `Registro da agenda apagada.` })
+              return resolve({ erro: `Compromisso não encontrado.` })
             } else {
-              return resolve({ agenda: response[0] })
+              return resolve({ compromisso: response[0] })
             }
           })
           .catch((error) => {
@@ -94,27 +104,35 @@ export default class AgendaRepository {
           .query(
             `
               SELECT
-                a.id
-                a.nome,
-                a.servico,
-                a.descricao
-                u.nome
+                c.id_usuario,
+                uc.nome as nome_cliente,
+                c.id_horario,
+                h.inicio h_inicio,
+                h.fim h_fim,
+                a.nome nome_agenda,
+                ue.nome as nome_empresa,
+                c.dt_completa,
+                c.descricao
               FROM
-                agendas a
+                compromissos c
               LEFT JOIN 
-                usuario u ON a.id_usuario = u.id
+                usuarios uc ON c.id_usuario = uc.id
+              LEFT JOIN 
+                horarios h ON c.id_horarios = h.id
+              LEFT JOIN
+                agendas a ON h.id_agenda = a.id
+              LETF JOIN 
+                usuarios ue ON a.id_usuario = ue.id
               WHERE
                 (
-                  u.nome LIKE ?
-                  OR a.nome LIKE ?
-                  OR a.descricao LIKE ?
+                
                 )
-                AND a.ativo = 1
+                AND c.ativo = 1
             `,
             [`%${procurar}%`, `%${procurar}%`]
           )
           .then(([response]) => {
-            return resolve({ agendas: response })
+            return resolve({ compromissos: response })
           })
           .catch((error) => {
             console.log(error)
@@ -142,7 +160,7 @@ export default class AgendaRepository {
               WHERE
                 id = ?
           `,
-            [body?.nome, body?.servico, body?.descricao, body?.id_agenda]
+            [body?.nome, body?.servico, body?.descricao, body?.id_compromisso]
           )
           .then((response) => {
             if (response.affectedRows === 0) {
@@ -166,7 +184,7 @@ export default class AgendaRepository {
     })
   }
 
-  apagar(id_agenda) {
+  apagar(id_compromisso) {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
@@ -179,7 +197,7 @@ export default class AgendaRepository {
               WHERE
                 id = ?
             `,
-            [id_agenda]
+            [id_compromisso]
           )
           .then((response) => {
             if (response[0].affectedRows === 0) {

@@ -16,7 +16,7 @@ export default class HorarioRepository {
                 ativo
               )
             VALUES
-              (?,?,?,1)
+              (?,?,?,?,1)
           `,
             [
               body?.id_dia,
@@ -56,11 +56,17 @@ export default class HorarioRepository {
               SELECT
                 h.id
                 h.id_dia,
+                ds.dia
                 h.id_agenda,
+                a.nome
                 h.inicio,
                 h.fim
               FROM
                 horarios h
+              LEFT JOIN 
+                dia_semana ds ON h.id_dia = ds.id
+              LEFT JOIN
+                agendas a ON h.id_agenda = a.id
               WHERE
                 h.id = ?
                 AND h.ativo = 1
@@ -94,19 +100,25 @@ export default class HorarioRepository {
               SELECT
                 h.id
                 h.id_dia,
+                ds.dia
                 h.id_agenda,
+                a.nome
                 h.inicio,
                 h.fim
               FROM
                 horarios h
+              LEFT JOIN 
+                dia_semana ds ON h.id_dia = ds.id
+              LEFT JOIN
+                agendas a ON h.id_agenda = a.id
               WHERE
                 (
-                  h.id_dia LIKE ?
-                  OR h.id_agenda LIKE ?
+                  h.id_dia = ?
+                  OR h.id_agenda = ?
                 )
                 AND a.ativo = 1
             `,
-            [`%${procurar}%`, `%${procurar}%`]
+            [procurar, procurar]
           )
           .then(([response]) => {
             return resolve({ horarios: response })
