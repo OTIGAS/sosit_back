@@ -1,5 +1,5 @@
-import AgendaRepository from '../repository/agenda.repository.js'
-const agendaRepository = new AgendaRepository()
+import CompromissoRepository from '../repository/compromisso.repository.js'
+const compromissoRepository = new CompromissoRepository()
 
 import dotenv from 'dotenv'
 import { dirname } from 'path'
@@ -15,12 +15,12 @@ export default class AgendaController {
     return (req, res) => {
       const body = req.body
 
-      if (!body?.nome || !body?.servico || !body?.descricao) {
+      if (!body?.id_usuario || !body?.id_horario || !body?.dt_completa || !body?.descricao) {
         const response = { erro: 'Parâmetros ausentes.' }
         return RespostaErro(400, res, req, response)
       }
 
-      agendaRepository
+      compromissoRepository
         .cadastrar(body)
         .then((response) => {
           if (response.erro) {
@@ -37,15 +37,15 @@ export default class AgendaController {
 
   buscar() {
     return (req, res) => {
-      const { id_agenda } = req.query
+      const { id_compromisso } = req.query
 
-      if (!id_agenda) {
+      if (!id_compromisso) {
         const response = { erro: 'Parâmetros ausentes.' }
         return RespostaErro(400, res, req, response)
       }
 
-      agendaRepository
-        .buscar(id_agenda)
+      compromissoRepository
+        .buscar(id_compromisso)
         .then((response) => {
           if (response.erro) {
             return RespostaErro(400, res, req, response)
@@ -63,7 +63,7 @@ export default class AgendaController {
     return (req, res) => {
       const { procurar } = req.query
 
-      agendaRepository
+      compromissoRepository
         .listar(procurar || '')
         .then((response) => {
           if (response.erro) {
@@ -82,12 +82,12 @@ export default class AgendaController {
     return (req, res) => {
       const body = req.body
 
-      if (!body?.nome || !body?.email || !body?.perfil || !body?.id_agenda) {
+      if (!body?.nome || !body?.servico || !body?.descricao || !body?.id_compromisso) {
         const response = { erro: 'Parâmetros ausentes.' }
         return RespostaErro(400, res, req, response)
       }
 
-      agendaRepository
+      compromissoRepository
         .atualizar(body)
         .then((response) => {
           if (response.erro) {
@@ -104,15 +104,15 @@ export default class AgendaController {
 
   apagar() {
     return (req, res) => {
-      const { id_agenda } = req.query
+      const { id_compromisso } = req.query
 
-      if (!id_agenda) {
+      if (!id_compromisso) {
         const response = { erro: 'Parâmetros ausentes.' }
         return RespostaErro(400, res, req, response)
       }
 
-      agendaRepository
-        .apagar(id_agenda)
+      compromissoRepository
+        .apagar(id_compromisso)
         .then((response) => {
           if (response.erro) {
             return RespostaErro(400, res, req, response)

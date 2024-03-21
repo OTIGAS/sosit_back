@@ -15,37 +15,13 @@ export default class AgendaController {
     return (req, res) => {
       const body = req.body
 
-      if (!body?.id_dia || !body?.id_horario || !body?.inicio || !body?.fim) {
+      if (!body?.id_dia || !body?.id_agenda || !body?.inicio || !body?.fim) {
         const response = { erro: 'Parâmetros ausentes.' }
         return RespostaErro(400, res, req, response)
       }
 
       horarioRepository
         .cadastrar(body)
-        .then((response) => {
-          if (response.erro) {
-            return RespostaErro(400, res, req, response)
-          } else {
-            return RespostaSucesso(200, res, req, response)
-          }
-        })
-        .catch((error) => {
-          return RespostaFalha(500, res, req, null, error)
-        })
-    }
-  }
-
-  perfil() {
-    return (req, res) => {
-      const { id: id_horario } = req.user
-
-      if (!id_horario) {
-        const response = { erro: 'Parâmetros ausentes.' }
-        return RespostaErro(400, res, req, response)
-      }
-
-      horarioRepository
-        .buscar(id_horario)
         .then((response) => {
           if (response.erro) {
             return RespostaErro(400, res, req, response)
@@ -106,7 +82,7 @@ export default class AgendaController {
     return (req, res) => {
       const body = req.body
 
-      if (!body?.id_dia || !body?.id_horario || !body?.inicio || !body?.fim || !body?.id_horario) {
+      if (!body?.id_horario) {
         const response = { erro: 'Parâmetros ausentes.' }
         return RespostaErro(400, res, req, response)
       }

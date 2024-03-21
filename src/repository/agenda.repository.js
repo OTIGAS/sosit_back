@@ -111,7 +111,7 @@ export default class AgendaRepository {
                 )
                 AND a.ativo = 1
             `,
-            [`%${procurar}%`, `%${procurar}%`]
+            [`%${procurar}%`, `%${procurar}%`, `%${procurar}%`]
           )
           .then(([response]) => {
             return resolve({ agendas: response })

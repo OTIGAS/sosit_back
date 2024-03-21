@@ -116,7 +116,7 @@ export default class HorarioRepository {
                   h.id_dia = ?
                   OR h.id_agenda = ?
                 )
-                AND a.ativo = 1
+                AND h.ativo = 1
             `,
             [procurar, procurar]
           )
@@ -188,8 +188,12 @@ export default class HorarioRepository {
             }
           })
           .catch((error) => {
-            console.log(error)
-            return reject(new Error(error))
+            if (error?.message?.includes(`foreign key`)) {
+              return resolve({ erro: `Horário associado a outra informação.` })
+            } else {
+              console.log(error)
+              return reject(new Error(error))
+            }
           })
           .finally(() => {
             conn.end()

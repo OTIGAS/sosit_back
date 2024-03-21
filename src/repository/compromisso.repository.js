@@ -47,7 +47,7 @@ export default class AgendaRepository {
     })
   }
 
-  buscar(id_compromisso) { // confirmar
+  buscar(id_compromisso) { 
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
