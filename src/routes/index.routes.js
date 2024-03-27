@@ -1,8 +1,9 @@
 import { Router } from 'express'
 
 import usuarioRoutes from './usuario.routes.js'
-
-import { RespostaSucesso, RespostaErro, RespostaFalha } from '../utils/handler.js'
+import agendaRoutes from './agenda.routes.js'
+import diaSemanaRoutes from './dia-semana.routes.js'
+import horarioRoutes from './horario.routes.js'
 
 import dotenv from 'dotenv'
 import { dirname } from 'path'
@@ -12,14 +13,13 @@ dotenv.config({ path: __dirname + '/./../../../.env' })
 
 const routes = Router()
 
+routes.use('/usuario', usuarioRoutes)
+routes.use('/agenda', agendaRoutes)
+routes.use('/dia-semana', diaSemanaRoutes)
+routes.use('/horario', horarioRoutes)
+
 routes.get('/', (_req, res) => {
   res.status(200).json({ response: 'Servidor rodando.' })
 })
-
-routes.use('/usuario', usuarioRoutes)
-
-// routes.post('/', (req, res) => {
-
-// })
 
 export default routes

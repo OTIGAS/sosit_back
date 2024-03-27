@@ -12,7 +12,7 @@ routes.get(`/buscar`, agendaController.buscar())
 
 routes.get(`/listar`, agendaController.listar())
 
-routes.patch(`/atualizar`, agendaController.atualizar())
+routes.put(`/atualizar`, agendaController.atualizar())
 
 routes.delete(`/apagar`, agendaController.apagar())
 

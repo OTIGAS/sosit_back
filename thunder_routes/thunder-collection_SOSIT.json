@@ -1,0 +1,381 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "SOSIT",
+    "dateExported": "2024-03-27T23:51:13.715Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Usuários",
+            "containerId": "",
+            "created": "2024-03-27T21:56:34.178Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "90cc8652-213c-49fd-96cd-bf6bab44d651",
+            "name": "Agendas",
+            "containerId": "",
+            "created": "2024-03-27T23:10:22.192Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "96f15a05-a1c5-4da7-b064-6dc478c3545f",
+            "name": "Dias da Semana",
+            "containerId": "",
+            "created": "2024-03-27T23:36:13.244Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "d9b84560-00aa-4306-a284-e3780f357022",
+            "name": "Horários",
+            "containerId": "",
+            "created": "2024-03-27T23:41:59.279Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "446ce9a3-c6b1-4732-903c-81106c68e22a",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Entrar",
+            "url": "http://localhost:3000/usuario/entrar",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2024-03-27T22:04:42.994Z",
+            "modified": "2024-03-27T22:25:05.527Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"email@email.com\",\n  \"senha\": \"senha_nova\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2831455b-c036-4985-aef3-691eca69f9ee",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Cadastrar",
+            "url": "http://localhost:3000/usuario/cadastrar",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-27T21:56:40.129Z",
+            "modified": "2024-03-27T22:02:58.898Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Nome\",\n  \"email\": \"email@email.com\",\n  \"senha\": \"senha\",\n  \"perfil\": \"empresa\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "60fc5062-cb46-4620-8384-3ffe49105b4b",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Perfil",
+            "url": "http://localhost:3000/usuario/perfil",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-27T22:06:14.635Z",
+            "modified": "2024-03-27T22:06:44.103Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNTc3MTY2LCJleHAiOjE3MTE2NjM1NjZ9.0DYSitrs3VjhYUOIrK6NdMWv6QkMghOJdCxoWpq6m60"
+            },
+            "tests": []
+        },
+        {
+            "_id": "5726fecf-e4f9-4b4f-9830-1d9e1c9c4d61",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Buscar",
+            "url": "http://localhost:3000/usuario/buscar?id_usuario=1",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-27T22:06:55.060Z",
+            "modified": "2024-03-27T22:07:39.023Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id_usuario",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "786f40cb-4c4e-4e87-bd5d-2bf1776a2e6e",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Listar",
+            "url": "http://localhost:3000/usuario/listar?procurar=email",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-03-27T22:07:51.508Z",
+            "modified": "2024-03-27T22:28:16.613Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "procurar",
+                    "value": "email",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "5dc9d01f-e8ed-4140-afde-b4d354483745",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Atualizar",
+            "url": "http://localhost:3000/usuario/atualizar",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-03-27T22:16:29.146Z",
+            "modified": "2024-03-27T22:18:39.528Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Nome Atualizado\",\n  \"email\": \"email@email.com\",\n  \"senha\": \"senha\",\n  \"perfil\": \"empresa\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNTc3MTY2LCJleHAiOjE3MTE2NjM1NjZ9.0DYSitrs3VjhYUOIrK6NdMWv6QkMghOJdCxoWpq6m60"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3db5579f-e96e-4b92-b116-7c4d4a4d423f",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Atualizar Senha",
+            "url": "http://localhost:3000/usuario/atualizar-senha",
+            "method": "PATCH",
+            "sortNum": 70000,
+            "created": "2024-03-27T22:19:24.511Z",
+            "modified": "2024-03-27T22:23:46.838Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"email@email.com\",\n  \"senha_antiga\": \"senha\",\n  \"senha_nova\": \"senha_nova\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "687c1be5-c3bf-4f96-93fe-ab941a3e3670",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "adea341c-fefe-4968-a4f7-6e1adefc29f3",
+            "name": "Apagar",
+            "url": "http://localhost:3000/usuario/apagar?id_usuario=1",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2024-03-27T22:26:59.666Z",
+            "modified": "2024-03-27T22:28:01.018Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id_usuario",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "fb8ff74c-f209-4bc7-9166-e90230e7750e",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "90cc8652-213c-49fd-96cd-bf6bab44d651",
+            "name": "Cadastrar",
+            "url": "http://localhost:3000/agenda/cadastrar",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-03-27T23:10:41.114Z",
+            "modified": "2024-03-27T23:13:37.141Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Agenda\",\n  \"servico\": \"Serviço\",\n  \"descricao\": \"Descrição\",\n  \"id_usuario\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e0a2eaa9-118f-41c6-8a4d-952c600bfd18",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "90cc8652-213c-49fd-96cd-bf6bab44d651",
+            "name": "Buscar",
+            "url": "http://localhost:3000/agenda/buscar?id_agenda=1",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-03-27T23:18:57.117Z",
+            "modified": "2024-03-27T23:19:19.649Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id_agenda",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "e55b4587-a4f3-4173-bd95-54ac1ccdb35d",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "90cc8652-213c-49fd-96cd-bf6bab44d651",
+            "name": "Listar",
+            "url": "http://localhost:3000/agenda/listar?procurar=nome",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-03-27T23:20:24.049Z",
+            "modified": "2024-03-27T23:25:39.130Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "procurar",
+                    "value": "nome",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "c96b1ccf-cb36-46b8-a7f2-889152900b04",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "90cc8652-213c-49fd-96cd-bf6bab44d651",
+            "name": "Atualizar",
+            "url": "http://localhost:3000/agenda/atualizar",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2024-03-27T23:23:32.468Z",
+            "modified": "2024-03-27T23:25:27.260Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Agenda Atualizada\",\n  \"servico\": \"Serviço\",\n  \"descricao\": \"Descrição\",\n  \"id_agenda\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "af680794-757e-4c21-8841-640a6c6106d1",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "90cc8652-213c-49fd-96cd-bf6bab44d651",
+            "name": "Apagar",
+            "url": "http://localhost:3000/agenda/apagar?id_agenda=1",
+            "method": "DELETE",
+            "sortNum": 130000,
+            "created": "2024-03-27T23:31:41.346Z",
+            "modified": "2024-03-27T23:32:04.452Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id_agenda",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "c9d2e067-aa5e-4298-99f7-86117a01b145",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "96f15a05-a1c5-4da7-b064-6dc478c3545f",
+            "name": "Buscar",
+            "url": "http://localhost:3000/dia-semana/buscar?id_dia=1",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2024-03-27T23:36:22.171Z",
+            "modified": "2024-03-27T23:37:33.083Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id_dia",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "3ae0d55f-ce49-49e5-bca6-0d242ffff13f",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "96f15a05-a1c5-4da7-b064-6dc478c3545f",
+            "name": "Listar",
+            "url": "http://localhost:3000/dia-semana/listar",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2024-03-27T23:39:13.227Z",
+            "modified": "2024-03-27T23:39:29.053Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "febce945-19b0-48f1-9260-4a9359cc74b8",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "d9b84560-00aa-4306-a284-e3780f357022",
+            "name": "Cadastrar",
+            "url": "http://localhost:3000/horario/cadastrar",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2024-03-27T23:42:06.670Z",
+            "modified": "2024-03-27T23:45:14.553Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id_dia\": 1,\n  \"id_agenda\": 2,\n  \"inicio\": \"19:00:00\",\n  \"fim\": \"22:20:00\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7bad28df-869f-451f-9ab5-551665ac21a2",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "d9b84560-00aa-4306-a284-e3780f357022",
+            "name": "Buscar",
+            "url": "http://localhost:3000/horario/buscar?id_horario=1",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2024-03-27T23:46:08.634Z",
+            "modified": "2024-03-27T23:46:26.415Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id_horario",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "2f752fae-9b98-4252-8075-6e9880648bae",
+            "colId": "d205b3af-ade9-47f6-9e00-b6ab34d21bcb",
+            "containerId": "d9b84560-00aa-4306-a284-e3780f357022",
+            "name": "Listar",
+            "url": "http://localhost:3000/horario/listar",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2024-03-27T23:48:39.910Z",
+            "modified": "2024-03-27T23:48:46.835Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

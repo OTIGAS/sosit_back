@@ -159,22 +159,15 @@ export default class UsuarioController {
 
   atualizarSenha() {
     return (req, res) => {
-      const { id: id_usuario } = req.user
-
-      if (!id_usuario) {
-        const response = { erro: 'Parâmetros ausentes.' }
-        return RespostaErro(400, res, req, response)
-      }
-
       const body = req.body
 
-      if (!body?.senha_antiga || !body?.senha_nova) {
+      if (!body?.email || !body?.senha_antiga || !body?.senha_nova) {
         const response = { erro: 'Parâmetros ausentes.' }
         return RespostaErro(400, res, req, response)
       }
 
       usuarioRepository
-        .atualizarSenha(id_usuario, body)
+        .atualizarSenha(body)
         .then((response) => {
           if (response.erro) {
             return RespostaErro(400, res, req, response)

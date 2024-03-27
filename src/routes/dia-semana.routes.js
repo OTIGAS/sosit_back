@@ -3,7 +3,7 @@ const routes = Router()
 
 import { verifica_token } from '../config/autenticacao.js'
 
-import DiaSemanaController from '../controller/diaSemana.controller.js'
+import DiaSemanaController from '../controller/dia-semana.controller.js'
 const diaSemanaController = new DiaSemanaController()
 
 routes.get(`/buscar`, diaSemanaController.buscar())

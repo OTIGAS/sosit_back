@@ -1,6 +1,6 @@
 import { db } from '../config/database.js'
 
-export default class HorarioRepository {
+export default class AvaliacaoRepository {
   cadastrar(body) {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
@@ -8,28 +8,24 @@ export default class HorarioRepository {
           .query(
             `
             INSERT INTO
-              horarios (
-                id_dia,
-                id_agenda,
-                inicio,
-                fim,
-                ativo
+              avaliacoes (
+                numero
               )
             VALUES
-              (?,?,?,?,1)
+              (?)
           `,
-            [body?.id_dia, body?.id_agenda, body?.inicio, body?.fim]
+            [body?.numero]
           )
           .then(([response]) => {
             if (response?.affectedRows === 0) {
-              return resolve({ erro: `Falha na inclusão do horário` })
+              return resolve({ erro: `Falha na inclusão da Avaliação.` })
             } else {
-              return resolve({ mensagem: `Horário cadastrado com sucesso.` })
+              return resolve({ mensagem: `Avaliação cadastrada com sucesso.` })
             }
           })
           .catch((error) => {
             if (error?.message?.includes(`Duplicate`)) {
-              return resolve({ erro: `Horário já cadastrada.` })
+              return resolve({ erro: `Avaliação já cadastrada.` })
             } else {
               console.log(error)
               return reject(new Error(error))
@@ -42,37 +38,27 @@ export default class HorarioRepository {
     })
   }
 
-  buscar(id_horario) {
+  buscar(id_avaliacao) {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
           .query(
             `
               SELECT
-                h.id,
-                h.id_dia,
-                ds.nome as dia,
-                h.id_agenda,
-                a.nome as agenda,
-                h.inicio,
-                h.fim
+                a.id,
+                a.numero
               FROM
-                horarios h
-              LEFT JOIN 
-                dia_semana ds ON h.id_dia = ds.id
-              LEFT JOIN
-                agendas a ON h.id_agenda = a.id
+                avaliacoes a
               WHERE
-                h.id = ?
-                AND h.ativo = 1
+                a.id = ?
             `,
-            [id_horario]
+            [id_avaliacao]
           )
           .then(([response]) => {
             if (!response?.length) {
-              return resolve({ erro: `Horário não encontrado.` })
+              return resolve({ erro: `Avaliação não encontrada.` })
             } else {
-              return resolve({ horario: response[0] })
+              return resolve({ avaliacao: response[0] })
             }
           })
           .catch((error) => {
@@ -86,37 +72,22 @@ export default class HorarioRepository {
     })
   }
 
-  listar(procurar) {
+  listar() {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
           .query(
             `
-              SELECT
-                h.id,
-                h.id_dia,
-                ds.nome as dia,
-                h.id_agenda,
-                a.nome as agenda,
-                h.inicio,
-                h.fim
-              FROM
-                horarios h
-              LEFT JOIN 
-                dia_semana ds ON h.id_dia = ds.id
-              LEFT JOIN
-                agendas a ON h.id_agenda = a.id
-              WHERE
-                (
-                  ds.nome = ?
-                  OR a.nome = ?
-                )
-                AND h.ativo = 1
+            SELECT
+            a.id,
+            a.numero
+          FROM
+            avaliacoes a
             `,
-            [procurar, procurar]
+            []
           )
           .then(([response]) => {
-            return resolve({ horarios: response })
+            return resolve({ avaliacoes: response })
           })
           .catch((error) => {
             console.log(error)
@@ -129,26 +100,26 @@ export default class HorarioRepository {
     })
   }
 
-  atualizar(id_horario) {
+  atualizar(body) {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
           .query(
             `
               UPDATE
-                horarios
+                avaliacoes
               SET
-                ativo = NOT ativo
+                numero = ?
               WHERE
                 id = ?
             `,
-            [id_horario]
+            [body?.numero, body?.id_avaliacao]
           )
           .then((response) => {
             if (response[0].affectedRows === 0) {
-              return resolve({ erro: 'Horário não encontrada.' })
+              return resolve({ erro: 'Avaliação não encontrada.' })
             } else {
-              return resolve({ mensagem: 'Horário atualizado com sucesso.' })
+              return resolve({ mensagem: 'Avaliação atualizada com sucesso.' })
             }
           })
           .catch((error) => {
@@ -162,29 +133,29 @@ export default class HorarioRepository {
     })
   }
 
-  apagar(id_horario) {
+  apagar(id_avaliacao) {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
           .query(
             `
               DELETE FROM
-                horarios
+                avaliacoes
               WHERE
                 id = ?
             `,
-            [id_horario]
+            [id_avaliacao]
           )
           .then((response) => {
             if (response[0].affectedRows === 0) {
-              return resolve({ erro: 'Horário não encontrado.' })
+              return resolve({ erro: 'Avaliação não encontrada.' })
             } else {
-              return resolve({ mensagem: 'Horário apagado com sucesso.' })
+              return resolve({ mensagem: 'Avaliação apagada com sucesso.' })
             }
           })
           .catch((error) => {
             if (error?.message?.includes(`foreign key`)) {
-              return resolve({ erro: `Horário associado a outra informação.` })
+              return resolve({ erro: `Avaliação associada a outra informação.` })
             } else {
               console.log(error)
               return reject(new Error(error))

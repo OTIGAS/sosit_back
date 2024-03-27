@@ -9,19 +9,16 @@ export default class AgendaRepository {
             `
             INSERT INTO
               agendas (
+                id_usuario,
                 nome,
                 servico,
                 descricao,
                 ativo
               )
             VALUES
-              (?,?,?,1)
+              (?,?,?,?,1)
           `,
-            [
-              body?.nome,
-              body?.servico,
-              body?.descricao
-            ]
+            [body?.id_usuario, body?.nome, body?.servico, body?.descricao]
           )
           .then(([response]) => {
             if (response?.affectedRows === 0) {
@@ -45,22 +42,23 @@ export default class AgendaRepository {
     })
   }
 
-  buscar(id_agenda) { // confirmar
+  buscar(id_agenda) {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
           .query(
             `
               SELECT
-                a.id
-                a.nome,
+                a.id,
+                a.nome AS agenda_nome,
                 a.servico,
-                a.descricao
-                u.nome
+                a.descricao,
+                a.id_usuario,
+                u.nome AS usuario_nome
               FROM
                 agendas a
               LEFT JOIN 
-                usuario u ON a.id_usuario = u.id
+                usuarios u ON a.id_usuario = u.id
               WHERE
                 a.id = ?
                 AND a.ativo = 1
@@ -94,15 +92,16 @@ export default class AgendaRepository {
           .query(
             `
               SELECT
-                a.id
-                a.nome,
+                a.id,
+                a.nome AS agenda_nome,
                 a.servico,
-                a.descricao
-                u.nome
+                a.descricao,
+                a.id_usuario,
+                u.nome AS usuario_nome
               FROM
                 agendas a
               LEFT JOIN 
-                usuario u ON a.id_usuario = u.id
+                usuarios u ON a.id_usuario = u.id
               WHERE
                 (
                   u.nome LIKE ?
@@ -172,10 +171,8 @@ export default class AgendaRepository {
         return conn
           .query(
             `
-              UPDATE
+              DELETE FROM
                 agendas
-              SET
-                ativo = NOT ativo
               WHERE
                 id = ?
             `,
@@ -189,8 +186,34 @@ export default class AgendaRepository {
             }
           })
           .catch((error) => {
-            console.log(error)
-            return reject(new Error(error))
+            if (error.message.includes(`foreign key`)) {
+              return conn
+                .query(
+                  `
+                    UPDATE
+                      agendas
+                    SET
+                      ativo = NOT ativo
+                    WHERE
+                    id = ?
+                  `,
+                  [id_agenda]
+                )
+                .then((response) => {
+                  if (response[0].affectedRows === 0) {
+                    return resolve({ erro: 'Agenda não encontrada.' })
+                  } else {
+                    return resolve({ mensagem: 'Agenda apagada com sucesso.' })
+                  }
+                })
+                .catch((error) => {
+                  console.log(error)
+                  return reject(new Error(error))
+                })
+            } else {
+              console.log(error)
+              return reject(new Error(error))
+            }
           })
           .finally(() => {
             conn.end()

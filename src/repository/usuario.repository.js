@@ -218,7 +218,7 @@ export default class UsuarioRepository {
     })
   }
 
-  atualizarSenha(id_usuario, body) {
+  atualizarSenha(body) {
     return new Promise((resolve, reject) => {
       db().then((conn) => {
         return conn
@@ -231,9 +231,9 @@ export default class UsuarioRepository {
               FROM
                 usuarios
               WHERE
-                id = ?
+                email = ?
             `,
-            [id_usuario]
+            [body?.email]
           )
           .then(async ([response]) => {
             if (!response?.length) {
@@ -253,9 +253,9 @@ export default class UsuarioRepository {
                           SET
                             senha = ?
                           WHERE
-                            id = ?
+                            email = ?
                         `,
-                        [senha, body?.id_usuario]
+                        [senha, body?.email]
                       )
                       .then(([response]) => {
                         console.log(response)
@@ -325,10 +325,8 @@ export default class UsuarioRepository {
         return conn
           .query(
             `
-              UPDATE
+              DELETE FROM
                 usuarios
-              SET
-                ativo = NOT ativo
               WHERE
                 id = ?
             `,
@@ -336,14 +334,39 @@ export default class UsuarioRepository {
           )
           .then((response) => {
             if (response[0].affectedRows === 0) {
-              return resolve({ erro: 'Usuário não encontrado.' })
             } else {
               return resolve({ mensagem: 'Usuário apagado com sucesso.' })
             }
           })
           .catch((error) => {
-            console.log(error)
-            return reject(new Error(error))
+            if (error?.message?.includes(`foreign key`)) {
+              return conn
+                .query(
+                  `
+                    UPDATE
+                      usuarios
+                    SET
+                      ativo = NOT ativo
+                    WHERE
+                      id = ?
+                  `,
+                  [id_usuario]
+                )
+                .then((response) => {
+                  if (response[0].affectedRows === 0) {
+                    return resolve({ erro: 'Usuário não encontrado.' })
+                  } else {
+                    return resolve({ mensagem: 'Usuário apagado com sucesso.' })
+                  }
+                })
+                .catch((error) => {
+                  console.log(error)
+                  return reject(new Error(error))
+                })
+            } else {
+              console.log(error)
+              return reject(new Error(error))
+            }
           })
           .finally(() => {
             conn.end()

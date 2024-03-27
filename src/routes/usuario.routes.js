@@ -16,11 +16,11 @@ routes.get(`/buscar`, usuarioController.buscar())
 
 routes.get(`/listar`, usuarioController.listar())
 
-routes.patch(`/atualizar`, usuarioController.atualizar())
+routes.put(`/atualizar`, verifica_token, usuarioController.atualizar())
 
-routes.put(`/atualizar-senha`, usuarioController.atualizarSenha())
+routes.patch(`/atualizar-senha`, usuarioController.atualizarSenha())
 
-routes.put(`/atualizar-status`, usuarioController.atualizarStatus())
+routes.patch(`/atualizar-status`, usuarioController.atualizarStatus())
 
 routes.delete(`/apagar`, usuarioController.apagar())
 
