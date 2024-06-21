@@ -1,0 +1,43 @@
+17/05/2024 22:30:05 - POST /contact/create -> ReferenceError: company is not defined
+17/05/2024 22:47:05 - GET /contact/find -> TypeError: Cannot read properties of undefined (reading 'erro')
+18/05/2024 09:55:51 - POST /user/create -> ReferenceError: UtilGenerateHash is not defined
+18/05/2024 09:56:41 - POST /user/create -> Error: data and salt arguments required
+18/05/2024 09:58:05 - POST /user/create -> Error: data and salt arguments required
+18/05/2024 09:59:41 - POST /user/create -> Error: data and salt arguments required
+18/05/2024 10:01:31 - POST /user/create -> ReferenceError: hashPasswordResult is not defined
+18/05/2024 10:03:29 - GET /user/list -> Error: Unknown column 'a.id_analytics' in 'where clause'
+18/05/2024 10:03:57 - GET /user/list -> Error: Unknown column 'a.id_analytics' in 'where clause'
+18/05/2024 10:06:18 - DELETE /user/delete -> ReferenceError: id_analytics is not defined
+18/05/2024 11:05:45 - POST /user/login -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id_subject
+          FROM
+            user u
+          WHERE
+            u.emai' at line 2
+18/05/2024 11:08:10 - POST /analytics-company/create -> Error: Column count doesn't match value count at row 1
+18/05/2024 11:10:52 - POST /subject-company/create -> Error: Column count doesn't match value count at row 1
+18/05/2024 11:11:11 - POST /subject-company/create -> Error: Cannot add or update a child row: a foreign key constraint fails (`ergoviewer`.`subject_company`, CONSTRAINT `subject_company_ibfk_2` FOREIGN KEY (`id_mediator_subject`) REFERENCES `subject_company` (`id_subject`))
+18/05/2024 11:11:11 - POST /subject-company/create -> Error: Cannot add or update a child row: a foreign key constraint fails (`ergoviewer`.`subject_company`, CONSTRAINT `subject_company_ibfk_2` FOREIGN KEY (`id_mediator_subject`) REFERENCES `subject_company` (`id_subject`))
+18/05/2024 11:11:40 - POST /subject-company/create -> Error: Cannot add or update a child row: a foreign key constraint fails (`ergoviewer`.`subject_company`, CONSTRAINT `subject_company_ibfk_1` FOREIGN KEY (`id_mediator_analytics`) REFERENCES `analytics_company` (`id_analytics`))
+18/05/2024 17:35:17 - POST /user/login -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id_subject
+          FROM
+            user u
+          WHERE
+            u.emai' at line 2
+18/05/2024 17:36:14 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+18/05/2024 17:36:38 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+18/05/2024 17:38:10 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+18/05/2024 17:38:33 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+18/05/2024 17:39:49 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+18/05/2024 17:44:33 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+18/05/2024 17:45:01 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+18/05/2024 17:45:22 - POST /user/login -> Error: data and hash arguments required
+18/05/2024 17:46:26 - POST /user/login -> Error: data and hash arguments required
+18/05/2024 18:12:49 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'length')
+18/05/2024 18:13:08 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'length')
+18/05/2024 18:13:16 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'length')
+18/05/2024 18:17:01 - POST /user/create -> Error: Unknown column 'user_name.birth_date' in 'field list'
+18/05/2024 18:17:31 - POST /user/create -> Error: Cannot add or update a child row: a foreign key constraint fails (`ergoviewer`.`user`, CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subject_company` (`id_subject`))
+18/05/2024 20:16:28 - PUT /subject-company/update -> ReferenceError: mediator is not defined
+18/05/2024 20:37:32 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'length')
+18/05/2024 20:38:07 - POST /user/login -> TypeError: Cannot read properties of undefined (reading 'length')
+18/05/2024 20:40:03 - POST /user/login -> Error: data and hash arguments required

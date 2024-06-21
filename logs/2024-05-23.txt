@@ -1,0 +1,17 @@
+23/05/2024 12:43:44 - POST /company/create -> Error: Column count doesn't match value count at row 1
+23/05/2024 12:44:28 - POST /company/create -> Error: Column count doesn't match value count at row 1
+23/05/2024 12:48:01 - GET /company/find -> ReferenceError: result is not defined
+23/05/2024 12:50:32 - GET /company/find -> TypeError: Cannot read properties of null (reading 'map')
+23/05/2024 12:52:23 - GET /company/find -> TypeError: Cannot read properties of null (reading 'map')
+23/05/2024 12:52:50 - GET /company/find -> TypeError: Cannot read properties of null (reading 'map')
+23/05/2024 12:53:20 - GET /company/find -> TypeError: Cannot read properties of null (reading 'map')
+23/05/2024 12:53:39 - GET /company/find -> TypeError: Cannot read properties of null (reading 'map')
+23/05/2024 12:57:35 - GET /company/find -> ReferenceError: result is not defined
+23/05/2024 12:58:16 - GET /company/find -> ReferenceError: result is not defined
+23/05/2024 13:01:29 - GET /company/find -> TypeError: Cannot read properties of undefined (reading 'length')
+23/05/2024 13:01:50 - GET /company/find -> ReferenceError: result is not defined
+23/05/2024 13:02:53 - GET /company/find -> ReferenceError: result is not defined
+23/05/2024 14:09:15 - GET /company/list -> Error: Unknown column 'ac.deleted_at' in 'where clause'
+23/05/2024 14:09:33 - GET /company/list -> Error: Unknown column 'ac.deleted_at' in 'where clause'
+23/05/2024 14:21:31 - GET /company/list -> Error: Unknown column 'ac.deleted_at' in 'where clause'
+23/05/2024 15:10:17 - POST /address/create -> TypeError: Cannot read properties of undefined (reading 'affectedRows')

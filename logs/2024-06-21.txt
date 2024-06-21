@@ -1,0 +1,29 @@
+20/06/2024 21:07:39 - GET /schedule/list -> Error: In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'sosit.schedule.id_schedule'; this is incompatible with sql_mode=only_full_group_by
+21/06/2024 10:49:00 - GET /schedule/list -> Error: In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'sosit.schedule.id_schedule'; this is incompatible with sql_mode=only_full_group_by
+21/06/2024 10:51:15 - GET /schedule/list -> Error: In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'sosit.schedule.id_schedule'; this is incompatible with sql_mode=only_full_group_by
+21/06/2024 17:04:21 - GET /times/list -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM
+            commitment
+          LEFT JOIN
+            times ON times.id_ti' at line 9
+21/06/2024 17:07:58 - GET /times/list -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM 
+            times
+          WHERE 
+            times.id_schedule = '1' AND' at line 8
+21/06/2024 17:57:15 - GET /commitment/list -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id_schedule,
+            schedule.is_active,
+            schedule.name_schedule' at line 17
+21/06/2024 17:58:50 - GET /commitment/list -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id_schedule,
+            schedule.is_active,
+            schedule.name_schedule' at line 17
+21/06/2024 17:58:53 - GET /commitment/list -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id_schedule,
+            schedule.is_active,
+            schedule.name_schedule' at line 17
+21/06/2024 17:59:11 - GET /commitment/list -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id_schedule,
+            schedule.is_active,
+            schedule.name_schedule' at line 17
+21/06/2024 17:59:39 - GET /commitment/list -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? OR
+              schedule.id_schedule = ? 
+            ) AND
+            commi' at line 38
+21/06/2024 18:28:24 - GET /commitment/find -> ReferenceError: time is not defined
+21/06/2024 18:28:26 - GET /commitment/find -> ReferenceError: time is not defined

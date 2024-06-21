@@ -1,0 +1,8 @@
+19/06/2024 09:36:45 - POST /entity/create -> Error: Incorrect date value: '02/02/2002' for column 'date_of_birth' at row 1
+19/06/2024 09:40:42 - POST /entity/create -> RangeError: Use `yyyy` instead of `YYYY` (in `YYYY-MM-DD`) for formatting years to the input `02/02/2002`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md
+19/06/2024 14:49:58 - POST /entity/login -> TypeError: Cannot read properties of undefined (reading 'password_login')
+19/06/2024 14:54:00 - POST /entity/login -> TypeError: Cannot read properties of undefined (reading 'password_login')
+19/06/2024 14:54:08 - POST /entity/login -> TypeError: Cannot read properties of undefined (reading 'password_login')
+19/06/2024 14:54:46 - POST /entity/login -> TypeError: Cannot destructure property 'password_login' of 'dataSelectResult[0]' as it is undefined.
+19/06/2024 14:55:08 - POST /entity/login -> TypeError: Cannot destructure property 'password_login' of 'dataSelectResult[0]' as it is undefined.
+19/06/2024 14:55:17 - POST /entity/login -> TypeError: Cannot destructure property 'password_login' of 'dataSelectResult[0]' as it is undefined.

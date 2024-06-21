@@ -1,0 +1,32 @@
+17/05/2024 14:17:09 - POST /subject-company/create -> Error: Cannot add or update a child row: a foreign key constraint fails (`ergoviewer`.`subject_company`, CONSTRAINT `subject_company_ibfk_1` FOREIGN KEY (`id_mediator_analytics`) REFERENCES `analytics_company` (`id_analytics`))
+17/05/2024 14:49:33 - POST /subject-company/create -> ReferenceError: id_mediator is not defined
+17/05/2024 14:51:31 - POST /subject-company/create -> ReferenceError: mediator is not defined
+17/05/2024 14:55:19 - POST /subject-company/create -> Error: Cannot add or update a child row: a foreign key constraint fails (`ergoviewer`.`subject_company`, CONSTRAINT `subject_company_ibfk_1` FOREIGN KEY (`id_mediator_analytics`) REFERENCES `analytics_company` (`id_analytics`))
+17/05/2024 17:51:16 - POST /subject-company/create -> TypeError: Cannot destructure property 'company' of 'undefined' as it is undefined.
+17/05/2024 17:51:38 - POST /subject-company/create -> Error: No recipients defined
+17/05/2024 18:00:06 - GET /subject-company/list -> Error: Unknown column 'ac.id_mediator_subject' in 'field list'
+17/05/2024 18:06:55 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+            id_subject = NULL' at line 8
+17/05/2024 18:07:52 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+            id_subject = NULL' at line 8
+17/05/2024 18:08:57 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+            id_subject = NULL' at line 8
+17/05/2024 18:09:19 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+            id_subject = '1'' at line 8
+17/05/2024 18:10:18 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+            id_subject = '1'' at line 8
+17/05/2024 18:22:36 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+            id_subject = '1'' at line 8
+17/05/2024 18:23:41 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 9
+17/05/2024 18:25:25 - PUT /subject-company/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+            id_subject = '1'' at line 8
+17/05/2024 19:57:52 - GET /analytics-company/list -> Error: Unknown column 'a.city' in 'where clause'
+17/05/2024 19:58:30 - GET /analytics-company/list -> TypeError: Cannot read properties of undefined (reading 'id_analytics')
+17/05/2024 19:59:26 - GET /analytics-company/list -> TypeError: Cannot read properties of undefined (reading 'id_analytics')
+17/05/2024 20:03:47 - GET /analytics-company/list -> TypeError: Cannot read properties of undefined (reading 'id_analytics')
+17/05/2024 20:06:19 - GET /analytics-company/find -> TypeError: Cannot read properties of undefined (reading 'id_analytics')
+17/05/2024 20:23:05 - POST /subject-company/create -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+17/05/2024 20:23:46 - POST /subject-company/create -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+17/05/2024 20:24:54 - POST /subject-company/create -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+17/05/2024 20:26:24 - POST /subject-company/create -> Error: Cannot add or update a child row: a foreign key constraint fails (`ergoviewer`.`subject_company`, CONSTRAINT `subject_company_ibfk_2` FOREIGN KEY (`id_mediator_subject`) REFERENCES `subject_company` (`id_subject`))
+17/05/2024 20:36:49 - GET /subject-company/list -> TypeError: addressSelectResult.map is not a function

@@ -1,0 +1,14 @@
+20/06/2024 09:57:38 - PUT /entity/update -> Error: Incorrect date value: 'undefined/undefined/23/09/2000' for column 'date_of_birth' at row 1
+20/06/2024 10:58:34 - PUT /entity/update -> Error: Unknown column 'number' in 'field list'
+20/06/2024 11:11:24 - PUT /entity/update -> Error: Unknown column 'number' in 'field list'
+20/06/2024 11:16:43 - PUT /entity/update -> Error: Unknown column 'id_contact' in 'where clause'
+20/06/2024 13:34:53 - PATCH /entity/image -> ReferenceError: oldAvatar is not defined
+20/06/2024 13:36:10 - PATCH /entity/image -> ReferenceError: path is not defined
+20/06/2024 13:37:43 - PATCH /entity/image -> ReferenceError: __dirname is not defined
+20/06/2024 16:11:46 - PUT /schedule/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id_company = 1 AND id_schedule = 'undefined'' at line 1
+20/06/2024 16:12:33 - PUT /schedule/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id_company = 1 AND id_schedule = 'undefined'' at line 1
+20/06/2024 16:13:58 - PUT /schedule/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id_company = 1 AND id_schedule = '1'' at line 1
+20/06/2024 16:15:01 - PUT /schedule/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id_company = 1 AND id_schedule = '1'' at line 1
+20/06/2024 16:15:41 - PUT /schedule/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id_company = 1 AND id_schedule = '1'' at line 1
+20/06/2024 16:17:34 - PUT /schedule/update -> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id_company = 1 AND id_schedule = '1'' at line 1
+20/06/2024 18:17:31 - PUT /schedule/update -> Error: Column 'is_active' cannot be null

@@ -1,0 +1,10 @@
+15/06/2024 13:22:40 - POST /user/create -> Error: data and salt arguments required
+15/06/2024 13:33:50 - POST /user/create -> Error: data and salt arguments required
+15/06/2024 13:35:10 - POST /user/create -> Error: data and salt arguments required
+15/06/2024 13:36:03 - POST /user/create -> Error: data and salt arguments required
+15/06/2024 13:36:29 - POST /user/create -> Error: Incorrect integer value: 'user' for column 'profile' at row 1
+15/06/2024 13:49:23 - POST /user/create -> Error: Unknown database 'sosit'
+15/06/2024 14:02:46 - POST /user/create -> TypeError: Cannot read properties of undefined (reading '0')
+15/06/2024 14:03:18 - POST /user/create -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+15/06/2024 14:03:43 - POST /user/create -> TypeError: Cannot read properties of undefined (reading 'affectedRows')
+15/06/2024 17:53:57 - PUT /user/update -> ReferenceError: userSelectResult is not defined

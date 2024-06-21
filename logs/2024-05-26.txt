@@ -1,0 +1,1 @@
+26/05/2024, 15:03:04 - POST /contact/create -> Error: Unknown column 'id_analytics' in 'field list'

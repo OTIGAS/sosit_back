@@ -1,0 +1,2 @@
+22/05/2024 00:21:10 - POST /analytics-company/create -> ReferenceError: addAbortSignal is not defined
+22/05/2024 00:21:17 - POST /analytics-company/create -> ReferenceError: addAbortSignal is not defined
